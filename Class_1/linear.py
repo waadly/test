@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 path = 'D:\\Practice Program\\python\\Coursera\\Coursera\\吴恩达ml\\machine-learning-ex1\\ex1\\ex1data1.txt'
 data = pd.read_csv(path, header=None, names=['Population', 'Profit'])
 
-data.insert(0,'Ones',1) # 在0的位置插入一列
+data.insert(0,'Ones',1) # 在第0行，第一列的位置插入一列
 
 data.plot(kind='scatter',x='Population',y='Profit',figsize=(8,5))
 plt.show()
@@ -31,7 +31,7 @@ print(X.shape,th.shape,y.shape)
 # 梯度下降
 def gradientDescent(X, y, th, al, iters):
     """reuturn theta, cost"""
-    cost = np.zeros(iters)  # 初始化一个ndarray，包含每次epoch的cost
+    cost = np.zeros(iters) # 迭代次数  
     m = X.shape[0]  # 样本数量m
 
     for i in range(iters):
@@ -64,7 +64,7 @@ ax.set_title('Predicted Profit vs. Population Size')
 plt.show()
 
 fig, ax = plt.subplots(figsize=(8,4))
-ax.plot(np.arange(iters), cost, 'r')  # np.arange()返回等差数组
+ax.plot(np.arange(iters), cost, 'r')  
 ax.set_xlabel('Iterations')
 ax.set_ylabel('Cost')
 ax.set_title('Error vs. Training iters')
